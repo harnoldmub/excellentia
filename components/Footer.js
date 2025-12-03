@@ -1,9 +1,9 @@
 // Footer Component
 
 export function Footer() {
-    const footer = document.createElement('footer');
-    footer.className = 'footer';
-    footer.innerHTML = `
+  const footer = document.createElement('footer');
+  footer.className = 'footer';
+  footer.innerHTML = `
     <style>
       .footer {
         background: var(--gradient-primary);
@@ -103,7 +103,6 @@ export function Footer() {
       .footer-logo img {
         height: 60px;
         width: auto;
-        filter: brightness(0) invert(1);
       }
       
       @media (max-width: 1024px) {
@@ -120,13 +119,16 @@ export function Footer() {
       }
     </style>
     
+    <!-- Bande tricolore RDC -->
+    <div style="width: 100%; height: 8px; background: url('/bande-tricolore.png') repeat-x center; background-size: auto 100%; margin-bottom: var(--space-8);"></div>
+    
     <div class="footer-container">
       <div class="footer-grid">
         <div class="footer-section">
           <div class="footer-logo">
-            <img src="/Logo@4x.png" alt="Excellentia-RDC">
+            <img src="/logo-footer.png" alt="Excellentia-RDC" style="height: 60px; width: auto;">
           </div>
-          <p>Programme National de Bourses d'Excellence - Récompenser le mérite, former l'élite de demain.</p>
+          <p>Programme National de Bourses d'Excellence - L'excellence congolaise au service du développement national.</p>
         </div>
         
         <div class="footer-section">
@@ -172,17 +174,17 @@ export function Footer() {
     </div>
   `;
 
-    // Add event listeners for navigation
-    setTimeout(() => {
-        const links = footer.querySelectorAll('[data-link]');
-        links.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const path = link.getAttribute('data-link');
-                window.location.hash = path;
-            });
-        });
-    }, 0);
+  // Add event listeners for navigation
+  setTimeout(() => {
+    const links = footer.querySelectorAll('[data-link]');
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const path = link.getAttribute('data-link');
+        window.location.hash = path;
+      });
+    });
+  }, 0);
 
-    return footer;
+  return footer;
 }

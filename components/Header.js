@@ -173,7 +173,7 @@ export function Header() {
     
     <div class="header-container">
       <a class="header-logo" data-link="/">
-        <img src="/Logo@4x.png" alt="Excellentia-RDC Logo">
+        <img src="/logo-header.png" alt="Excellentia-RDC - Programme National de Bourses Universitaires">
       </a>
       
       <nav class="header-nav" id="headerNav">

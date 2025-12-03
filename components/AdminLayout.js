@@ -4,12 +4,12 @@ import { storage } from '../utils/mockData.js';
 import router from '../router.js';
 
 export function AdminLayout(content, activeRoute = '') {
-    const container = document.createElement('div');
-    container.className = 'admin-layout';
+  const container = document.createElement('div');
+  container.className = 'admin-layout';
 
-    const session = storage.getAdminSession();
+  const session = storage.getAdminSession();
 
-    container.innerHTML = `
+  container.innerHTML = `
     <style>
       .admin-layout {
         display: flex;
@@ -147,7 +147,7 @@ export function AdminLayout(content, activeRoute = '') {
     
     <div class="admin-sidebar">
       <div class="admin-logo">
-        <img src="/Logo@4x.png" alt="Excellentia-RDC">
+        <img src="/logo-header.png" alt="Excellentia-RDC">
         <div class="admin-logo-text">Admin</div>
       </div>
       
@@ -196,41 +196,41 @@ export function AdminLayout(content, activeRoute = '') {
     </div>
   `;
 
-    // Add navigation
-    setTimeout(() => {
-        const links = container.querySelectorAll('[data-route]');
-        links.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const route = link.getAttribute('data-route');
-                router.navigate(route);
-            });
-        });
+  // Add navigation
+  setTimeout(() => {
+    const links = container.querySelectorAll('[data-route]');
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const route = link.getAttribute('data-route');
+        router.navigate(route);
+      });
+    });
 
-        // Logout
-        const logoutBtn = container.querySelector('#logoutBtn');
-        if (logoutBtn) {
-            logoutBtn.addEventListener('click', () => {
-                storage.clearAdminSession();
-                router.navigate('/admin/login');
-            });
-        }
+    // Logout
+    const logoutBtn = container.querySelector('#logoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        storage.clearAdminSession();
+        router.navigate('/admin/login');
+      });
+    }
 
-        // Insert content
-        const contentDiv = container.querySelector('#adminContent');
-        if (contentDiv && content) {
-            contentDiv.appendChild(content);
-        }
-    }, 0);
+    // Insert content
+    const contentDiv = container.querySelector('#adminContent');
+    if (contentDiv && content) {
+      contentDiv.appendChild(content);
+    }
+  }, 0);
 
-    return container;
+  return container;
 }
 
 function getRoleLabel(role) {
-    const labels = {
-        'admin_national': 'Administrateur National',
-        'admin_provincial': 'Administrateur Provincial',
-        'lecture': 'Lecture seule'
-    };
-    return labels[role] || 'Administrateur';
+  const labels = {
+    'admin_national': 'Administrateur National',
+    'admin_provincial': 'Administrateur Provincial',
+    'lecture': 'Lecture seule'
+  };
+  return labels[role] || 'Administrateur';
 }
