@@ -119,9 +119,7 @@ export function Footer() {
       }
     </style>
     
-    <!-- Bande tricolore RDC -->
-    <div style="width: 100%; height: 8px; background: url('/bande-tricolore.png') repeat-x center; background-size: auto 100%; margin-bottom: var(--space-8);"></div>
-    
+   
     <div class="footer-container">
       <div class="footer-grid">
         <div class="footer-section">

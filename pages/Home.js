@@ -3,10 +3,10 @@
 import { mockStatistics, mockTestimonials } from '../utils/mockData.js';
 
 export function HomePage() {
-    const page = document.createElement('div');
-    page.className = 'home-page';
+  const page = document.createElement('div');
+  page.className = 'home-page';
 
-    page.innerHTML = `
+  page.innerHTML = `
     <style>
       /* Hero Section */
       .hero {
@@ -14,7 +14,9 @@ export function HomePage() {
         min-height: 600px;
         display: flex;
         align-items: center;
-        background: var(--gradient-hero);
+        background-image: url('/EXCELLENTIA-ed-1-Fatshi--scaled.jpg');
+        background-size: cover;
+        background-position: center;
         overflow: hidden;
       }
       
@@ -25,10 +27,8 @@ export function HomePage() {
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23003A70" width="1200" height="600"/><path fill="%23FCD116" opacity="0.1" d="M0 300 Q300 200 600 300 T1200 300 V600 H0 Z"/></svg>');
-        background-size: cover;
-        background-position: center;
-        opacity: 0.3;
+        background: linear-gradient(135deg, rgba(0, 58, 112, 0.85) 0%, rgba(0, 26, 58, 0.9) 100%);
+        z-index: 0;
       }
       
       .hero-container {
@@ -448,11 +448,11 @@ export function HomePage() {
     </section>
   `;
 
-    // Populate testimonials
-    setTimeout(() => {
-        const grid = page.querySelector('#testimonialsGrid');
-        if (grid) {
-            grid.innerHTML = mockTestimonials.map(t => `
+  // Populate testimonials
+  setTimeout(() => {
+    const grid = page.querySelector('#testimonialsGrid');
+    if (grid) {
+      grid.innerHTML = mockTestimonials.map(t => `
         <div class="testimonial-card">
           <div class="testimonial-header">
             <div class="testimonial-photo">${t.nom.charAt(0)}</div>
@@ -466,8 +466,8 @@ export function HomePage() {
           </div>
         </div>
       `).join('');
-        }
-    }, 0);
+    }
+  }, 0);
 
-    return page;
+  return page;
 }
